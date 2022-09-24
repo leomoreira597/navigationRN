@@ -6,9 +6,18 @@ export default function PassoStack(props) {
         <View style={{
             flex: 1,
         }}>
-            <View>    
+            <View style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around'
+            }}>
+            {props.voltar ? 
+                <Button title="Voltar" onPress={() => props.navigation.goBack()} /> : false}
+
+
                 {props.avancar ? 
-                <Button title="Avançar" onPress={() => props.navigation.navigate(props.avancar)} /> : false}
+                <Button title="Avançar" onPress={() => props.navigation.push(props.avancar, 
+                        props.avancarParams
+                )} /> : false}
             </View>
 
             <View style={{
